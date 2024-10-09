@@ -44,7 +44,7 @@ labels <-c("None", "Mild", "Moderate", "Severe")
 sumgdata$ESD <- as.factor(sumgdata$ESD)
 sumgdata$ESD1 <-as.integer(sumgdata$ESD)
 gsimple <- ggplot(sumgdata, aes(ESD,mean, fill=ESD1))+geom_col()+geom_errorbar(aes(ymin=mean-se, ymax=mean+se), width=.2, position=position_dodge(.9))+
-  theme_classic()+scale_y_continuous(expand = c(0,0,0,0.5),limits=c(0,NA))+labs(y="Glucose Concentration (mg/mL)", x="ESD Lesions")+
+  theme_classic()+scale_y_continuous(expand = c(0,0,0,0.5),limits=c(0,NA))+labs(y="Glucose Concentration (mg/dL)", x="ESD Lesions")+
   scale_fill_viridis_c(option="rocket", direction = -1, begin = 0.2, end = 0.8, guide = "none")+scale_x_discrete(labels = c("0" = "None", "1" = "Mild", "2" = "Moderate", "3" ="Severe"))
 
 #glucose brix graphs to see how brix impacts glucose results
@@ -55,11 +55,11 @@ sumgbw <- gdata %>%
 sumgbw$ESD <-as.integer(sumgbw$ESD)
 
 gsimpleb <- ggplot(sumgbw, aes(Brix,mean, col=ESD))+geom_point()+ scale_color_viridis(option="rocket", direction = -1, begin = 0.2, end = 0.8)+
-  theme_classic()+scale_y_continuous(expand = c(0,0,0,0.5),limits=c(0,NA))+labs(y="Glucose Concentration (mg/mL)", x="Brix (%)")
+  theme_classic()+scale_y_continuous(expand = c(0,0,0,0.5),limits=c(0,NA))+labs(y="Glucose Concentration (mg/dL)", x="Brix (%)")
 
 #graph of weight, esd and glucose readings
 gsimplew <- ggplot(sumgbw, aes(Weight,mean, col=ESD))+geom_point()+ scale_color_viridis(option="rocket", direction = -1, begin = 0.2, end = 0.8)+
-  theme_classic()+scale_y_continuous(expand = c(0,0,0,0.5),limits=c(0,NA))+labs(y="Glucose Concentration (mg/mL)", x="Weight (g)")
+  theme_classic()+scale_y_continuous(expand = c(0,0,0,0.5),limits=c(0,NA))+labs(y="Glucose Concentration (mg/dL)", x="Weight (g)")
 
 #Glycogen hypothesized graph for poster NOT DATA BASED predicted----
 glyhypo <- data.frame(
